@@ -1,122 +1,91 @@
-// function isEven(N){
-//   if(N == 0){
-//     return true
-//   }else if(N == 1){
-//     return false
-//   }else if(N > 0){
-//     return isEven(N -2)
-//   }else{
-//     return isEven(-N)
-//   }
-// }
-// console.log(isEven(10))
+// var maxSubArray = function(nums) {
+//   let sum = 0,
+//    result = nums[0];
+//   for (let i = 0; i < nums.length; i++) {
+//       sum = Math.max(nums[i], sum + nums[i]);
+//       result = Math.max(sum, result);
+//   
+//   return result ;
+// };
 
-// function factorial(number){
-//  let result = 1;
-//  for(let i=1 ; i <= number ; i++){
-//   result *= i
+// console.log(
+// maxSubArray([-2,1,-3,4,-1,2,1,-5,4]),
+// );
+
+// let array = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+// function maxSubArray(nums) {
+//   let max=nums[0];
+//   let sum=nums[0];
+//   for(let i = 1 ; i < nums.length; i++ ){
+//     if(sum+nums[i] > nums[i]){
+//       sum += nums[i];
+//     }else{
+//       sum = nums[i]
+//     }
+//     max = Math.max(max,sum)
+// }
+// return max
+// } 
+// console.log(maxSubArray(array))
+
+
+// var maxSubArray = function(nums){
+//   let sum = 0;
+//   let result = nums[0];
+//   for(let i = 0 ; i <= nums.length; i++){
+//     sum = Math.max(nums[i], sum - nums[i])
+//     result = Math.max(sum,result)
+//   }
+//   return result
+// }
+
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+
+// let array = [1, 2, 3, 4, 5, 6, 7];
+// let k = 3;
+// function arrayRotation(arr,numberOfshifts){
+//   let numbers = 0;
+//   let result=[]
+//   for(let i = 1; i <= numberOfshifts; i++){
+//     arr.unshift(arr.pop());
+//   }
+//   return arr
+// }
+// console.log(arrayRotation(array,k))
+
+// let array = [3, 0, 1] ;
+// function missingNumber(arr){
+//  let missArray=[];
+//  let minNum = Math.min(...arr);
+//  let maxNum = Math.max(...arr);
+//  for(let i = minNum ; i < maxNum ; i++){
+//   if(arr.indexOf(i) < 0){
+//     missArray.push(i)
+//   }
 //  }
-//  return result;
+//  return missArray ;
 // }
-// console.log(factorial(8))
+// console.log(missingNumber(array))
 
-// function factorial(n) {
-//   if (n === 0 || n === 1) {
-//       return 1;
-//   } else {
-//       return n * factorial(n - 1);
-//   }
-// }
-// console.log(factorial(5))
-// function samkutxedi(cvladi){
-//   for(let i =0 ; i <= cvladi ; i++){
-//     for(let j =0; j <= cvladi ; j++){
-//       console.log("#")
-//     }
-  
-//   }
-// }
-// samkutxedi(5)
-// function triangle(hashtags){
-// for (let result = "#"; result.length <=hashtags; result = result + "#")
-//     console.log(result);
-// }
-// triangle(10)
-// function triangle(sum){
-//   if(sum === 0){
-//     return ;
-//   }
-//   triangle(sum - 1)
-//   let row=""
-//   for(let i =0; i< sum; i++){
-//     row+= "#"
-//   }
-//   console.log(row)
-// }
-// triangle(5)
-// function outerFunc(idk){
-//  return function innerFuntion(){
-//     idk++
-//     return idk
-//   }
+// function mergeIntervals(intervals) {
+//   intervals.sort((a, b) => a[0] - b[0]);
 
-// }
-// let counter = outerFunc(0);
-// console.log(counter())
+//   let mergedIntervals = [];
+//   let currentInterval = intervals[0];
 
-// let number=[100,25,43,6136,643];
-// function sorter(sum,obj){
-//   for(let i = 0; i <sum.length ; i++){
-//     if(sum[i] === obj){
-//       return true
+//   for (let i = 1; i < intervals.length; i++) {
+//     let interval = intervals[i];
+
+//     if (interval[0] <= currentInterval[1]) {
+//       currentInterval[1] = Math.max(currentInterval[1], interval[1]);
+//     } else {
+//       mergedIntervals.push(currentInterval);
+//       currentInterval = interval;
 //     }
 //   }
-//   return false
-//   }
-// console.log(sorter(number,43))
-
-// let number=[100,25,43,6136,643];
-// function sorter(sum,obj){
-//   for(let i = 0; i <sum.length ; i++){
-//     if(sum[i] === obj){
-//       return true
-//     }
-//   }
-//   return false
-//   }
-// console.log(sorter(number,25))
-
-// let arr = [100,25,43,6136,643];
-// function arrays(num){
-//   return num.slice(3,4)
+//   return mergedIntervals;
 // }
-// console.log(arrays(arr))
 
-// const arr = ['one', 'one', 'one', 'two', 'two', 'three'];
-
-// const count = {};
-
-// arr.forEach(element => {
-//   count[element] = (count[element] || 0) + 1;
-// });
-// console.log(count)
-
-
-// const arr = ['one', 'one', 'one', 'two', 'two', 'three'];
-// function highest(random){
-//    random.sort((a, b) => a.length - b.length)
-//    return random.pop()
-// }
-// console.log(highest(arr))
-
-// function longestWord(sentence){
-//   let words = sentence.split(" ");
-//   let longestWord = words[0] ;
-//   for(let element of words){
-//     if( element.length > longestWord.length){   
-//       longestWord = element;
-//     }
-//   }
-//   return longestWord.length;
-// }
-// console.log(longestWord("my is saba name?!"))
+// console.log(
+//   mergeIntervals([[1, 3],[2, 6],[8, 10],[15, 18]])
+// );
